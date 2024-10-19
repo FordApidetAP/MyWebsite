@@ -4,13 +4,13 @@ COLLATE utf16_general_ci;
 use testaddress;
 
 CREATE TABLE tbType (
-    cTypeid                  INT(10)                  UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cTypeid                  INT(10)                  UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cTypename                VARCHAR(10)              COLLATE utf16_general_ci  NULL
 
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbProvince (
-   cProvinceid  int(5)  NULL primary key,
+   cProvinceid  int(5)  NOT NULL primary key,
    codeProvince varchar(2) COLLATE utf8_unicode_ci  NULL,
    namethProvince varchar(150) COLLATE utf8_unicode_ci  NULL,
    nameenProvince varchar(150) COLLATE utf8_unicode_ci  NULL
@@ -18,7 +18,7 @@ CREATE TABLE tbProvince (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbAmphures (
-   cAmphuresid int(5)  NULL primary key,
+   cAmphuresid int(5)  NOT NULL primary key,
    codeAmphures varchar(4) COLLATE utf8_unicode_ci  NULL,
    namethAmphures varchar(150) COLLATE utf8_unicode_ci  NULL,
    nameenAmphures varchar(150) COLLATE utf8_unicode_ci  NULL,
@@ -29,7 +29,7 @@ CREATE TABLE tbAmphures (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbDistricts (
-  cDistrictsid 				varchar(6) 			NULL primary key,
+  cDistrictsid 				varchar(6) 			NOT NULL primary key,
   zip_code 					int(11)  			NULL,
   namethDistricts 			varchar(150) 		COLLATE utf8_bin  NULL,
   nameenDistricts 			varchar(150) 		COLLATE utf8_bin  NULL,
@@ -40,7 +40,7 @@ CREATE TABLE tbDistricts (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbLogin (
-    cLoginid                    INT(10)                 UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cLoginid                    INT(10)                 UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cEmail                      VARCHAR(30)             COLLATE utf16_general_ci  NULL UNIQUE,
     cPassword                   VARCHAR(255)             COLLATE utf16_general_ci  NULL,
     cTypeid                     INT(10)                 UNSIGNED  NULL ,
@@ -50,7 +50,7 @@ CREATE TABLE tbLogin (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbUser (
-    cUserid                     INT(10)                 UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cUserid                     INT(10)                 UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cImguser					blob					null,
     cUsername                   VARCHAR(20)             COLLATE utf16_general_ci  NULL UNIQUE,
     cFirstName                  VARCHAR(20)             COLLATE utf16_general_ci NULL,
@@ -66,19 +66,19 @@ CREATE TABLE tbUser (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbCategory (
-    cCategoryid                     INT(10)                     UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cCategoryid                     INT(10)                     UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cCategoryName                   VARCHAR(20)                 COLLATE utf16_general_ci  NULL
 
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbPayment (
-    cPaymentid                      INT(10)                     UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cPaymentid                      INT(10)                     UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cPaymentName                    VARCHAR(20)                 COLLATE utf16_general_ci  NULL
 
 )ENGINE=InnoDB default charset=utf16;   
 
 CREATE TABLE tbProduct (
-    cProductid                      INT(10)                     UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cProductid                      INT(10)                     UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     file_name                   	VARCHAR(255)                NULL,
 	file_path                  		VARCHAR(255)                NULL,
     cProductName                    VARCHAR(20)                 COLLATE utf16_general_ci  NULL,
@@ -93,7 +93,7 @@ CREATE TABLE tbProduct (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbaddress (
-    cAAddressid                     INT(10)                 UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cAAddressid                     INT(10)                 UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cAUserid                        INT(10)                 NULL,
     cAFirstName                  VARCHAR(20)             COLLATE utf16_general_ci NULL,
     cALastName                   VARCHAR(20)             COLLATE utf16_general_ci  NULL,
@@ -107,7 +107,7 @@ CREATE TABLE tbaddress (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbOrder (
-    cOrderid                        INT(10)                     UNSIGNED  NULL AUTO_INCREMENT primary key,
+    cOrderid                        INT(10)                     UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
     cUserid                         INT(10)                     UNSIGNED  NULL,
     cOrderDate                      DATETIME                    default current_timestamp,
     cTotalAmount                    INT(10)                     UNSIGNED  NULL,
@@ -131,7 +131,7 @@ CREATE TABLE tbOrderdetail (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbcart (
-  cCartid 						INT(10)					 UNSIGNED  NULL AUTO_INCREMENT primary key,
+  cCartid 						INT(10)					 UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
   cUserid 						INT(10)					 UNSIGNED  NULL,
   cProductid 					INT(10) 				 UNSIGNED  NULL,
   price 						INT(10)					 UNSIGNED  NULL,
