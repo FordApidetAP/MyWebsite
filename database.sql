@@ -107,7 +107,7 @@ CREATE TABLE tbaddress (
 )ENGINE=InnoDB default charset=utf16;
 
 CREATE TABLE tbOrder (
-    cOrderid                        INT(10)                     UNSIGNED  NOT NULL AUTO_INCREMENT primary key,
+    cOrderid                        INT(10)                     UNSIGNED NOT NULL AUTO_INCREMENT primary key,
     cUserid                         INT(10)                     UNSIGNED  NULL,
     cOrderDate                      DATETIME                    default current_timestamp,
     cTotalAmount                    INT(10)                     UNSIGNED  NULL,
